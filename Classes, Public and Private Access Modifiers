@@ -1,0 +1,92 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// CLASSES,PUBLIC AND PRIVATE ACCESS MODIFIERS:
+// Basic syntax for defining a class:
+
+
+// CLASS EMPLOYEE:
+class Employee
+{
+    /*private variables can only be accessed by the functions present in the class and not directlly
+      a,b,c can be accessed through functions setData or getData */
+    private:  
+    int a,b,c;  
+    public:
+    int d,e;
+
+    //means this function will be created later.
+    void setData(int a1,int b1,int c1);   //Declaration of function.
+    
+    void getData()
+    {
+        cout<<"The value of a is "<< a <<endl;
+        cout<<"The value of b is "<< b <<endl;
+        cout<<"The value of c is "<< c <<endl;
+        cout<<"The value of d is "<< d <<endl;
+        cout<<"The value of e is "<< e <<endl;
+    }
+};
+
+void Employee :: setData(int a1 ,int b1, int c1)
+{
+    a=a1;
+    b=b1;
+    c=c1;
+}
+
+
+// CLASS ANIMAL:
+class Animal
+{
+    private:
+    string OwnerName,OwnerAddress;
+    public:
+    string AnimalType,Sound;
+    int Height;
+
+    void setAnimalData(string Owner,string OwnerAdd);
+
+    void getAnimalData()
+    {
+        cout<<"The Owner of the animal is "<< OwnerName <<endl;
+        cout<< OwnerName << " lives in "<< OwnerAddress <<endl;
+        cout<< OwnerName << " owns a "<< AnimalType <<endl;
+        cout<<"Her "<< AnimalType << "\t" << Sound <<endl;
+        cout<<"The "<< AnimalType <<" is "<< Height <<" ft tall"<<endl;
+    }
+
+
+};
+
+void Animal::setAnimalData(string Owner,string OwnerAdd)
+{
+   OwnerName=Owner;
+   OwnerAddress=OwnerAdd;
+}
+
+
+
+int main()
+{
+    // CLASS EMPLOYEE:
+    Employee harry;
+    // harry.a=123;   //will throw an error as 'a' is a private variable.
+    harry.d=34;
+    harry.e=89;
+    harry.setData(1,2,4);
+    harry.getData();
+    
+    cout<<"\n";
+    
+    // CLASS ANIMAL:
+    Animal Pet;
+    Pet.AnimalType="Dog";
+    Pet.Sound="Barks";
+    Pet.Height=2;
+    Pet.setAnimalData("Abiha","Karachi");
+    Pet.getAnimalData();
+
+    return 0;
+}
