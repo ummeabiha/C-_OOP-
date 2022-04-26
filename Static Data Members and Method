@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+
+// Static Data Members and Methods in C++ OOP:
+
+// STATIC DATA MEMBER:
+class Employee
+{
+    int id;
+
+    // count is the static data member of class Employee
+    // static variable is written outside class.
+    // the count will be separate for each object.To solve the problem we will make static variable.
+    // cannot pass the count from one object to other.
+    static int count;
+
+    // int count=0;   will show count 1 for every employee (individual for every object)
+
+public:
+    void setData(void)
+    {
+        cout << "Enter your id " << endl;
+        cin >> id;
+        count++;
+    }
+    void getData(void)
+    {
+        cout << "The id of Employee is " << id << "and this is Employee no " << count << endl;
+    }
+
+    // STATIC METHOD/FUNCTION: (can access static variables/function only)
+
+    static void getCount(void)
+    {
+        cout << "The value is count is " << count << endl;
+        //cout<< id; (throw an error)
+    }
+};
+
+// STATIC VARIABLE/CLASS VARIABLE:
+
+int Employee::count;
+/*
+property of class, not object.
+by default its value will be 0. No need to initialize.
+will take memory once and then will be updated.
+visibility is within the class.
+lifetime--> till the termination of programm.
+static variable is one, and is shared by each object.
+we can intialize the value of static variable as:
+//int Employee:: count=1000 ;
+*/
+
+int main()
+{
+    Employee harry, abiha, maham;
+    // harry.id=1;   //cannot do this as id and count are private
+    // harry.count=1;
+
+    harry.setData();
+    harry.getData();
+
+   // STATIC METHOD/FUNCTION:
+    Employee::getCount();
+
+    abiha.setData();
+    abiha.getData();
+    Employee::getCount();
+
+    maham.setData();
+    maham.getData();
+    Employee::getCount();
+
+    return 0;
+}
