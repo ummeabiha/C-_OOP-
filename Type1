@@ -1,0 +1,39 @@
+/*
+Type1 ---> Variables: private 
+Value for the variables : from public function getdata() 
+Output: from public function display().
+*/
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+class person
+{
+private:
+	string name;
+	int age;
+public:
+	void getdata()
+	{
+		cout<<"Enter name: ";
+		cin>>name;
+		cout<<"Enter age: ";
+		cin>>age;
+
+	}
+	void display()
+	{
+		cout<<"Your name is "<<name<<endl;
+		cout<<"Your age is "<<age<<endl;
+	}
+};
+
+int main()
+{
+	person p;
+	p.getdata();
+	p.display();
+	return 0;
+}
+
